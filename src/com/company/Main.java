@@ -19,9 +19,29 @@ public class Main {
             e.printStackTrace();
         }
 
-        Address address = new Address(1, "Minsk","Brovki", 12, 1,8);
         AddressConnector connector = new AddressConnector(connection);
-        connector.add (address);
+
+        Address address1 = new Address(1, "Minsk","Brovki", 12, 1,8);
+        Address address2 = new Address(2, "Brest","Gumnaya", 4,  0,1);
+        Address address3 = new Address(3, "Grodno","Kypala", 2, 2,3);
+        Address address4 = new Address(4, "NYork","Skver", 8, 3,9);
+        Address address5 = new Address(5, "Minsk","Golub", 1, 1,4);
+
+        connector.add (address1);
+        connector.add (address2);
+        connector.add (address3);
+        connector.add (address4);
+        connector.add (address5);
+
+        for (Address a : connector.readAll()){
+            System.out.println(a);
+        }
+
+
+
+
+
+
 
     }
 
