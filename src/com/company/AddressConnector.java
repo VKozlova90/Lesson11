@@ -58,9 +58,45 @@ public class AddressConnector {
         }
 
                 return res;
+   }
 
+    public void delete(int id) {
+
+        try (PreparedStatement statement = connection.prepareStatement("delete from Address where id=?")) {
+
+            statement.setInt(1, id);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
+
+    public void update (Address address) {
+        int res = 0;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("update Address set "
+                    //+ "title=?, body=?, category_id=?");
+
+            statement.setInt(1, address.getId());
+            statement.setString(2, address.getCity());
+            statement.setString(3, address.getStreet());
+            statement.setInt(4, address.getNumber_house());
+            statement.setInt(5, address.getHouse_building());
+            statement.setInt(6, address.getApartment());
+
+            res = pr.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+
 
 
 
