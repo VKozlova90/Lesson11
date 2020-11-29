@@ -56,13 +56,13 @@ public class AddressConnector {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-                return res;
+       return res;
    }
 
     public void delete(int id) {
 
-        try (PreparedStatement statement = connection.prepareStatement("delete from Address where id=?")) {
+
+        try (PreparedStatement statement = connection.prepareStatement("Удалить стоку, если id=?")) {
 
             statement.setInt(1, id);
             statement.executeUpdate();
